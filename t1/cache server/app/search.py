@@ -11,8 +11,8 @@ class CacheClient:
         self.stub = cache_service_pb2_grpc.CacheServiceStub(self.channel)
         
         # Cargar el archivo JSON
-        with open(json_file, "r") as file:
-            self.data = json.load(file)
+        f = open(json_file)
+        self.data = json.load(f)
 
     def get(self, key, simulated=False):
         start_time = time.time()  # Inicio del temporizador

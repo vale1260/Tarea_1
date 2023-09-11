@@ -25,9 +25,10 @@ class CacheClient:
 
 if __name__ == "__main__":
     # get key from args
-    import sys
-    key = sys.argv[1]
+    # import sys
+    # key = sys.argv[1]
 
     client = CacheClient()
-    value = client.get(key)
-    print(f"Value: {value}")
+   # client.put("hola","122")
+   # value = client.get("hola")
+    #print(f"Value: {value}")#
