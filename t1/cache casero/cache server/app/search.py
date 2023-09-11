@@ -4,6 +4,7 @@ import time
 import numpy as np
 import cache_service_pb2
 import cache_service_pb2_grpc
+import matplotlib.pyplot as plt
 
 class CacheClient:
     def __init__(self, host="localhost", port=50051, json_file="data.json"):
@@ -59,6 +60,7 @@ class CacheClient:
         time_without_cache = 0
         time_with_cache = 0
         avoided_json_lookups = 0
+        elapsed_times = []
 
         count = 0
         for key in keys_to_search:
@@ -71,6 +73,7 @@ class CacheClient:
             self.get(key)
             elapsed_time = time.time() - start_time
             time_with_cache += elapsed_time
+            elapsed_times.append(elapsed_time)
 
             if elapsed_time < 1:
                 avoided_json_lookups += 1
@@ -78,6 +81,13 @@ class CacheClient:
         time_saved = time_without_cache - time_with_cache
         print(f"\nTime saved thanks to cache: {time_saved:.2f} seconds")
         print(f"Number of times JSON lookup was avoided: {avoided_json_lookups}")
+
+        with open("search_data.txt", "w") as file:
+            file.write("Search Number,Elapsed Time (s)\n")
+            for i, elapsed_time in enumerate(elapsed_times):
+                file.write(f"{i+1},{elapsed_time:.6f}\n")
+
+
 
 if __name__ == '__main__':
     client = CacheClient()

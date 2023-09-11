@@ -1,5 +1,0 @@
-grpcio==1.43.0
-grpcio-tools==1.43.0
-requests==2.26.0
-pymemcache==3.4.1
-python-memcached==1.59
