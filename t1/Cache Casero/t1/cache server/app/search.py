@@ -4,7 +4,6 @@ import time
 import numpy as np
 import cache_service_pb2
 import cache_service_pb2_grpc
-import matplotlib.pyplot as plt
 
 class CacheClient:
     def __init__(self, host="localhost", port=50051, json_file="data.json"):

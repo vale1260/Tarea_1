@@ -31,5 +31,11 @@ services:
     depends_on: 
       - master
 
+  memcached:
+    container_name: memcached
+    image: memcached:latest
+    ports:
+        - "11211:11211"
+
 networks:
   cache_network:

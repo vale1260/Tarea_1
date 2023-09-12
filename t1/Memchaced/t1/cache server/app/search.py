@@ -34,7 +34,7 @@ class CacheClient(object):
             return response.value
         else:
             # Simulamos un retraso aletorio de 1 a 3 segundos, con una distribución normal en 2
-            delay = np.random.normal(2, 0.5)
+            delay = 1
             print(f"Key not found in cache. Waiting {delay:.5f} seconds...")
 
             if not simulated:
