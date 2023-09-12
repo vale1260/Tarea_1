@@ -13,9 +13,13 @@ def calcular_coeficiente_gini(datos):
 # Leer valores de carga del archivo para el sistema casero
 with open("data_casero.txt", "r") as archivo_casero:
     carga_casero = [float(linea.strip()) for linea in archivo_casero.readlines()]
+with open("data_memcached.txt", "r") as archivo_casero:
+    carga_memcached = [float(linea.strip()) for linea in archivo_casero.readlines()]
 
 # Calcular los coeficientes de Gini
 coeficiente_gini_casero = calcular_coeficiente_gini(carga_casero)
+coeficiente_gini_memcached = calcular_coeficiente_gini(carga_memcached)
 
 # Imprimir los coeficientes de Gini calculados
 print("Coeficiente de Gini - Sistema Casero:", coeficiente_gini_casero)
+print("Coeficiente de Gini - Sistema Memcached:", coeficiente_gini_memcached)
