@@ -15,4 +15,9 @@ dot.node('H', '      - Incrementar el contador')
 dot.edges(['AB', 'BC', 'CD', 'DE', 'EF', 'FG', 'GH'])
 # ... Agrega más bordes según sea necesario
 
-dot.render('code_flow', format='png', cleanup=True)
+try:
+    # Intenta renderizar y generar el PDF
+    pdf_path = dot.render('code_flow', format='pdf', cleanup=True)
+    print(f"PDF generado exitosamente. Ruta del archivo: {pdf_path}")
+except Exception as e:
+    print(f"Error al generar el PDF: {e}")
